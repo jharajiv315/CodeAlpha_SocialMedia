@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23f59e0b'/><text x='50' y='68' font-size='56' font-weight='800' font-family='sans-serif' text-anchor='middle' fill='%23090b0e'>F</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FORGE — A professional social network centered around WORK, BUILDING, PROGRESS, PROOF and COLLABORATION. Show what you're building. Proof > Claims." />
+    <meta name="keywords" content="engineering, builds, proof of work, developers, collaboration, distributed systems, AI, robotics, open source" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FORGE" />
+    <meta property="og:title" content="FORGE — The Engineering & Builder Social Network" />
+    <meta property="og:description" content="A flagship professional social network centered around real software builds, verifiable progress, and engineering collaboration." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FORGE — The Engineering & Builder Social Network" />
+    <meta name="twitter:description" content="A flagship professional social network centered around real software builds, verifiable progress, and engineering collaboration." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80" />
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://forge.dev/#website",
+          "url": "https://forge.dev",
+          "name": "FORGE",
+          "description": "Professional social network centered around what engineers and creators are building, shipping, and learning.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://forge.dev/builds?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://forge.dev/#organization",
+          "name": "FORGE",
+          "url": "https://forge.dev",
+          "slogan": "The Engineering & Builder Social Network"
+        }
+      ]
+    }
+    </script>
+    <title>FORGE — The Engineering & Builder Social Network</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

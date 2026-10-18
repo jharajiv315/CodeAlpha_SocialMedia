@@ -1,0 +1,131 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isExistingDoc() {
+      return resource != null;
+    }
+
+    // Profiles Collection
+    match /users/{userId} {
+      // Anyone can view public profiles
+      allow read: if true;
+      // Only the authenticated user can create/update their own profile
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isOwner(userId) && request.resource.data.id == userId;
+      // Disallow user deletion by clients directly
+      allow delete: if false;
+    }
+    
+    // Builds Collection
+    match /builds/{buildId} {
+      // Public builds are readable by anyone; drafts only by owner or authenticated collaborators
+      allow read: if resource.data.visibility == 'PUBLIC' || (isAuthenticated() && resource.data.ownerId == request.auth.uid);
+      // Only authenticated users can create builds where ownerId matches their auth UID
+      allow create: if isAuthenticated() && request.resource.data.ownerId == request.auth.uid;
+      // Only owner can update build core details, or cannot transfer ownership to someone else
+      allow update: if isAuthenticated() && (
+        resource.data.ownerId == request.auth.uid &&
+        request.resource.data.ownerId == resource.data.ownerId
+      );
+      // Only owner can delete their build
+      allow delete: if isAuthenticated() && resource.data.ownerId == request.auth.uid;
+      
+      // Milestones Subcollection
+      match /milestones/{milestoneId} {
+        allow read: if true;
+        allow create, update, delete: if isAuthenticated() && 
+          get(/databases/$(database)/documents/builds/$(buildId)).data.ownerId == request.auth.uid;
+      }
+      
+      // Collaborators Subcollection
+      match /collaborators/{collabId} {
+        allow read: if true;
+        // Build owner can add/modify collaborators
+        allow write: if isAuthenticated() && 
+          get(/databases/$(database)/documents/builds/$(buildId)).data.ownerId == request.auth.uid;
+      }
+    }
+    
+    // Posts & Updates Collection
+    match /posts/{postId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.authorId == request.auth.uid;
+    }
+    
+    // Comments Collection
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.authorId == request.auth.uid;
+    }
+    
+    // Social Interactions: Appreciations (Reactions)
+    match /appreciations/{appreciationId} {
+      allow read: if true;
+      // ID format is typically {userId}_{targetId} to prevent duplicates
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+    
+    // Social Interactions: Saves (Bookmarks)
+    match /saves/{saveId} {
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+    
+    // Social Interactions: Follows
+    match /follows/{followId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && request.resource.data.followerId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.followerId == request.auth.uid;
+    }
+
+    // Social Interactions: Build Follows
+    match /build_follows/{buildFollowId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+    
+    // Collaboration Requests
+    match /collab_requests/{requestId} {
+      // Only applicant or build owner can read the request
+      allow read: if isAuthenticated() && (
+        resource.data.applicantId == request.auth.uid ||
+        resource.data.ownerId == request.auth.uid
+      );
+      // Applicant can create request for themselves
+      allow create: if isAuthenticated() && 
+        request.resource.data.applicantId == request.auth.uid &&
+        request.resource.data.status == 'PENDING';
+      // Build owner can update status (ACCEPT/REJECT), or applicant can WITHDRAW
+      allow update: if isAuthenticated() && (
+        (resource.data.ownerId == request.auth.uid && request.resource.data.applicantId == resource.data.applicantId) ||
+        (resource.data.applicantId == request.auth.uid && request.resource.data.status == 'WITHDRAWN')
+      );
+    }
+    
+    // Notifications Collection
+    match /notifications/{notifId} {
+      // Only recipient can read their own notifications
+      allow read: if isAuthenticated() && resource.data.recipientId == request.auth.uid;
+      // Notifications are created by actors or cloud triggers, recipientId cannot equal actorId
+      allow create: if isAuthenticated() && request.resource.data.actorId == request.auth.uid;
+      // Recipient can only mark read
+      allow update: if isAuthenticated() && resource.data.recipientId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.recipientId == request.auth.uid;
+    }
+  }
+}
