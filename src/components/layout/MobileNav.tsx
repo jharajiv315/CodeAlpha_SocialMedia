@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from '../../hooks/useRouter';
 import { useAuth } from '../../hooks/useAuth';
-import { Sparkles, Compass, Layers, User, Plus } from 'lucide-react';
+import { Activity, Compass, Layers, User, Plus } from 'lucide-react';
 
 interface MobileNavProps {
   onOpenCreateBuild: () => void;
@@ -49,7 +49,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           fontWeight: path === '/' ? 600 : 500
         }}
       >
-        <Sparkles size={19} />
+        <Activity size={19} />
         <span>Feed</span>
       </button>
 

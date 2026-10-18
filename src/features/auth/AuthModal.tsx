@@ -6,7 +6,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { SEED_PROFILES } from '../../services/seedData';
 import { Avatar } from '../../components/common/Avatar';
 import { showToast } from '../../hooks/useToast';
-import { Sparkles } from 'lucide-react';
+import { KeyRound } from 'lucide-react';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -201,7 +201,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Quick Testing Personas */}
         <div style={{ marginTop: '8px', paddingTop: '16px', borderTop: '1px solid var(--border-subtle)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-tertiary)', textTransform: 'uppercase', fontWeight: 700, marginBottom: '10px' }}>
-            <Sparkles size={12} color="var(--accent-primary)" />
+            <KeyRound size={13} color="var(--accent-primary)" />
             <span>Explore Instantly with Demo Accounts</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px' }}>

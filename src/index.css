@@ -1,22 +1,21 @@
 /* FORGE Design System
-   Flagship Bright Glassmorphism Architecture
-   Clean, luminous surfaces, silky frosted glass, refined gradients, high-contrast typography.
+   Flagship Architectural Design System
+   Clean slate canvas, precision hairline borders, executive typography, reduced saturation.
 */
 
 :root {
-  /* Surfaces - Pearlescent, bright, luxurious light mode */
+  /* Surfaces - Clean, luminous, architectural light mode */
   --bg-page: #f8fafc;
-  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface: #ffffff;
   --bg-surface-elevated: #ffffff;
-  --bg-surface-hover: rgba(241, 245, 249, 0.8);
+  --bg-surface-hover: #f1f5f9;
   --bg-input: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.78);
-  --bg-glass-heavy: rgba(255, 255, 255, 0.92);
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-glass-heavy: rgba(255, 255, 255, 0.96);
 
-  /* Subtle ambient gradients */
-  --gradient-aurora: radial-gradient(at 0% 0%, rgba(224, 231, 255, 0.6) 0px, transparent 50%),
-                     radial-gradient(at 100% 0%, rgba(243, 232, 255, 0.5) 0px, transparent 50%),
-                     radial-gradient(at 50% 100%, rgba(224, 242, 254, 0.5) 0px, transparent 50%);
+  /* Subtle ambient technical canvas */
+  --gradient-ambient: radial-gradient(ellipse 70% 45% at 50% -10%, rgba(37, 99, 235, 0.04), transparent 70%);
+  --pattern-dots: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
 
   /* Borders & Dividers - luminous, subtle, frosted */
   --border-hairline: rgba(226, 232, 240, 0.85);
@@ -24,28 +23,28 @@
   --border-muted: #cbd5e1;
   --border-glass: rgba(255, 255, 255, 0.95);
   --border-default: var(--border-subtle);
-  --border-focus: #6366f1;
+  --border-focus: #2563eb;
 
   /* Typography Colors - High contrast, crisp slate hierarchy */
-  --text-primary: #0f172a;
+  --text-primary: #090d16;
   --text-secondary: #334155;
   --text-tertiary: #64748b;
   --text-muted: #94a3b8;
   --text-inverse: #ffffff;
 
-  /* Brand Accents - Flagship royal indigo / sapphire (Bright & Premium, NOT neon) */
-  --accent-primary: #4f46e5;
-  --accent-primary-hover: #4338ca;
-  --accent-primary-gradient: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-  --accent-primary-muted: rgba(79, 70, 229, 0.08);
-  --accent-primary-border: rgba(99, 102, 241, 0.35);
+  /* Brand Accents - High-precision Electric Cobalt (Flagship engineering standard) */
+  --accent-primary: #2563eb;
+  --accent-primary-hover: #1d4ed8;
+  --accent-primary-gradient: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+  --accent-primary-muted: rgba(37, 99, 235, 0.06);
+  --accent-primary-border: rgba(37, 99, 235, 0.2);
 
   --accent-amber: #d97706;
   --accent-amber-hover: #b45309;
-  --accent-amber-muted: rgba(217, 119, 6, 0.08);
-  --accent-amber-border: rgba(217, 119, 6, 0.25);
+  --accent-amber-muted: rgba(217, 119, 6, 0.06);
+  --accent-amber-border: rgba(217, 119, 6, 0.2);
 
-  /* Status Colors - Refined pastel pills with high-contrast text */
+  /* Status Colors - Refined engineering pills with high-contrast text */
   --status-shipped: #16a34a;
   --status-shipped-bg: #f0fdf4;
   --status-shipped-border: #bbf7d0;
@@ -61,10 +60,10 @@
   --status-progress-border: #fde047;
   --status-progress-text: #a16207;
 
-  --status-idea: #7c3aed;
-  --status-idea-bg: #faf5ff;
-  --status-idea-border: #e9d5ff;
-  --status-idea-text: #6b21a8;
+  --status-idea: #475569;
+  --status-idea-bg: #f8fafc;
+  --status-idea-border: #e2e8f0;
+  --status-idea-text: #334155;
 
   /* Danger / Error States */
   --danger-bg: #fef2f2;
@@ -78,18 +77,18 @@
 
   /* Radii - modern, elegant, rounded flagship feel */
   --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
   --radius-full: 9999px;
 
-  /* Shadows - Multi-layered ambient luxury shadows */
-  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
-  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-  --shadow-card-hover: 0 14px 34px -4px rgba(79, 70, 229, 0.09), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
-  --shadow-elevated: 0 20px 40px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.03);
-  --shadow-button: 0 4px 14px 0 rgba(79, 70, 229, 0.28);
+  /* Shadows - Multi-layered ambient luxury shadows with inner top bevel */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 4px 16px -2px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1);
+  --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.02), inset 0 1px 0 rgba(255, 255, 255, 1);
+  --shadow-elevated: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 6px 14px -3px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1);
+  --shadow-button: 0 1px 2px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.16);
 
   /* Layout Widths */
   --max-width-page: 1180px;
@@ -106,7 +105,8 @@
 
 html, body {
   background-color: var(--bg-page);
-  background-image: var(--gradient-aurora);
+  background-image: var(--pattern-dots), var(--gradient-ambient);
+  background-size: 24px 24px, 100% 100%;
   background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-sans);
@@ -207,18 +207,16 @@ h3, .h3 {
 /* Glassmorphism Cards */
 .card, .glass-card {
   background: var(--bg-surface);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-interactive:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-card-hover);
-  border-color: rgba(199, 210, 254, 0.75);
+  border-color: var(--border-muted);
 }
 
 /* Dividers */
@@ -235,29 +233,45 @@ h3, .h3 {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  padding: 8px 16px;
+  padding: 7px 15px;
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 600;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 }
 
+/* Executive Midnight Obsidian Button */
 .btn-primary {
-  background: var(--accent-primary-gradient);
+  background-color: #0f172a;
   color: #ffffff;
-  box-shadow: var(--shadow-button);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #0f172a;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .btn-primary:hover:not(:disabled) {
-  opacity: 0.94;
+  background-color: #1e293b;
+  border-color: #1e293b;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px 0 rgba(79, 70, 229, 0.35);
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .btn-primary:active:not(:disabled) {
   transform: translateY(0);
+}
+
+/* Electric Cobalt Accent Button */
+.btn-accent {
+  background: var(--accent-primary-gradient);
+  color: #ffffff;
+  border: 1px solid #1d4ed8;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-accent:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
 }
 
 .btn-secondary {
@@ -294,7 +308,7 @@ h3, .h3 {
 }
 
 .btn-sm {
-  padding: 5px 12px;
+  padding: 5px 11px;
   font-size: 12px;
   border-radius: var(--radius-xs);
 }
@@ -320,7 +334,7 @@ h3, .h3 {
 
 .input-field:focus, .input-base:focus {
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
   outline: none;
 }
 
@@ -338,11 +352,11 @@ select.input-field, select.input-base {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 3px 9px;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
   font-size: 11px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   letter-spacing: 0.01em;
   border: 1px solid transparent;
 }
@@ -421,8 +435,8 @@ select.input-field, select.input-base {
 }
 
 .status-dot-idea {
-  background-color: var(--status-idea);
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+  background-color: var(--text-muted);
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
 }
 
 /* Monospace - code snippets and hashes */
@@ -431,8 +445,9 @@ select.input-field, select.input-base {
   font-size: 12px;
   letter-spacing: -0.01em;
   background-color: #f1f5f9;
-  color: #334155;
-  padding: 2px 5px;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  padding: 1px 5px;
   border-radius: 4px;
 }
 
@@ -453,7 +468,7 @@ select.input-field, select.input-base {
 
 .modal-dialog {
   background: var(--bg-surface-elevated);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   max-width: 560px;
   width: 100%;

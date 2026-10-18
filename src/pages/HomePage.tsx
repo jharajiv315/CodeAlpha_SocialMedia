@@ -8,7 +8,7 @@ import { PostCard } from '../components/feed/PostCard';
 import { Sidebar } from '../components/layout/Sidebar';
 import { Button } from '../components/common/Button';
 import { Skeleton } from '../components/common/Skeleton';
-import { Sparkles, Users, Activity } from 'lucide-react';
+import { Layers, Users, Activity } from 'lucide-react';
 
 interface HomePageProps {
   onOpenAuth: () => void;
@@ -197,15 +197,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                   width: 44,
                   height: 44,
                   borderRadius: '12px',
-                  backgroundColor: 'var(--accent-primary-muted)',
-                  color: 'var(--accent-primary)',
+                  backgroundColor: '#f1f5f9',
+                  color: '#0f172a',
+                  border: '1px solid #e2e8f0',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '14px'
                 }}
               >
-                <Sparkles size={20} />
+                <Layers size={20} />
               </div>
               <h3 style={{ fontSize: '17px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>
                 {activeTab === 'following' ? 'No updates from your network yet' : 'No posts published yet'}

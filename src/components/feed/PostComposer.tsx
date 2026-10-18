@@ -5,7 +5,7 @@ import { dataService } from '../../services/dataService';
 import { Avatar } from '../common/Avatar';
 import { Button } from '../common/Button';
 import { showToast } from '../../hooks/useToast';
-import { Sparkles, Code2, HelpCircle, Users, Lightbulb, Send } from 'lucide-react';
+import { Activity, Code2, HelpCircle, Users, Lightbulb, Send, Terminal } from 'lucide-react';
 
 interface PostComposerProps {
   onPostCreated?: () => void;
@@ -14,7 +14,7 @@ interface PostComposerProps {
 }
 
 const TYPE_OPTIONS: { type: PostType; label: string; icon: React.ReactNode }[] = [
-  { type: 'UPDATE', label: 'Update', icon: <Sparkles size={12} /> },
+  { type: 'UPDATE', label: 'Update', icon: <Activity size={12} /> },
   { type: 'INSIGHT', label: 'Technical Insight', icon: <Lightbulb size={12} /> },
   { type: 'QUESTION', label: 'Question', icon: <HelpCircle size={12} /> },
   { type: 'COLLAB', label: 'Collaboration', icon: <Users size={12} /> }
@@ -55,26 +55,27 @@ export const PostComposer: React.FC<PostComposerProps> = ({
           backgroundColor: '#ffffff'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <div
             style={{
-              width: 36,
-              height: 36,
+              width: 38,
+              height: 38,
               borderRadius: '10px',
-              backgroundColor: 'var(--accent-primary-muted)',
-              color: 'var(--accent-primary)',
+              backgroundColor: '#0f172a',
+              color: '#ffffff',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              boxShadow: '0 2px 8px rgba(15, 23, 42, 0.15)'
             }}
           >
-            <Sparkles size={18} />
+            <Terminal size={18} />
           </div>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)' }}>
+            <div style={{ fontSize: '14.5px', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
               Showcase what you are building
             </div>
-            <div className="subtext" style={{ fontSize: '12.5px' }}>
+            <div className="subtext" style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>
               Join engineers sharing verifiable progress, architecture breakthroughs, and tools.
             </div>
           </div>
@@ -150,9 +151,10 @@ export const PostComposer: React.FC<PostComposerProps> = ({
                       fontWeight: isActive ? 600 : 500,
                       padding: '4px 10px',
                       borderRadius: 'var(--radius-full)',
-                      backgroundColor: isActive ? 'var(--accent-primary-muted)' : '#f1f5f9',
-                      color: isActive ? 'var(--accent-primary)' : 'var(--text-secondary)',
-                      border: isActive ? '1px solid var(--accent-primary-border)' : '1px solid transparent',
+                      backgroundColor: isActive ? '#0f172a' : '#f8fafc',
+                      color: isActive ? '#ffffff' : 'var(--text-secondary)',
+                      border: isActive ? '1px solid #0f172a' : '1px solid var(--border-subtle)',
+                      boxShadow: isActive ? '0 1px 3px rgba(15, 23, 42, 0.12)' : 'none',
                       transition: 'all 0.12s ease'
                     }}
                   >

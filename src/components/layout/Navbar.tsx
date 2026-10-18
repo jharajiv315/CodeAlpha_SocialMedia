@@ -12,7 +12,7 @@ import {
   LogOut,
   User,
   ChevronDown,
-  Sparkles,
+  Activity,
   Layers,
   Compass,
   Users
@@ -108,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navLinks = [
-    { label: 'Feed', href: '/', icon: <Sparkles size={14} /> },
+    { label: 'Feed', href: '/', icon: <Activity size={14} /> },
     { label: 'Explore', href: '/explore', icon: <Compass size={14} /> },
     { label: 'Builds', href: '/builds', icon: <Layers size={14} /> },
     { label: 'Network', href: '/network', icon: <Users size={14} /> }
@@ -120,12 +120,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        backgroundColor: 'rgba(255, 255, 255, 0.82)',
+        backgroundColor: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-        borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
+        borderBottom: '1px solid rgba(226, 232, 240, 0.85)',
         height: 'var(--header-height)',
-        boxShadow: '0 2px 10px rgba(15, 23, 42, 0.02)'
+        boxShadow: '0 1px 3px rgba(15, 23, 42, 0.03)'
       }}
     >
       <div
@@ -151,17 +151,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <div
               style={{
-                width: 34,
-                height: 34,
-                borderRadius: '10px',
-                background: 'var(--accent-primary-gradient)',
+                width: 32,
+                height: 32,
+                borderRadius: '8px',
+                background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#ffffff',
                 fontWeight: 800,
-                fontSize: '18px',
-                boxShadow: '0 4px 12px rgba(79, 70, 229, 0.28)'
+                fontSize: '16px',
+                boxShadow: '0 2px 6px rgba(15, 23, 42, 0.18)',
+                border: '1px solid rgba(255, 255, 255, 0.12)'
               }}
             >
               F
